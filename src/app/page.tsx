@@ -1,9 +1,11 @@
+import HeroSection from "@/components/HeroSection";
+
 export default function Home() {
     return (
-        <div>
+        <div className="z-40">
             {/* Hero section */}
             <div className="h-screen">
-                <div className="fixed mx-auto w-screen h-screen" />
+                <HeroSection/>
             </div>
 
             {/* Project Showcase */}
