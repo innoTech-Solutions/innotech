@@ -30,28 +30,34 @@ export default function Navbar() {
     }, []);
 
     return (
-        <div
-            className="fixed top-0 left-1/2 transform -translate-x-1/2 flex flex-row gap-8 items-center px-8 py-5 rounded-xl bg-neutral-800 bg-opacity-20 z-50"
-            // initial={{ y: 0 }}
-            // animate={{ y: scrollDirection === "down" ? "-100%" : "0%" }}
-            // transition={{ duration: 0.3, ease: "easeInOut" }}
-        >
-            <Link href="#hero">
-                <Image
-                    className="m-2 relative"
-                    alt="icon"
-                    height={25}
-                    width={25}
-                    src="/icontransparent.png"
-                />
-            </Link>
-            <Briefcase color="white" size={20} />
-
-            <Button className="bg-sky-400 hover:bg-sky-700 cursor-pointer p-4 rounded-md text-md">
-                <Link href="/contact-form" className="text-black">
-                    Let&apos;s talk
+        <div className="flex  justify-center items-center">
+            <motion.div
+                className="flex px-8 py-4 bg-opacity-50 rounded-xl bg-neutral-800 flex-row items-center gap-12"
+                initial={{ y: 0 }}
+                animate={{ y: scrollDirection === "down" ? "-100%" : "0%" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+                <Link href="#hero">
+                    <Image
+                        className="m-2 relative hover:opacity-50 transition"
+                        alt="icon"
+                        height={25}
+                        width={25}
+                        src="/icontransparent.png"
+                    />
                 </Link>
-            </Button>
+                <Briefcase
+                    className="cursor-pointer transition hover:opacity-50"
+                    color="white"
+                    size={25}
+                />
+
+                <Button className="bg-sky-400 hover:bg-sky-700 cursor-pointer p-4 rounded-md text-md py-5">
+                    <Link href="/contact-form" className="text-black">
+                        Let&apos;s talk
+                    </Link>
+                </Button>
+            </motion.div>
         </div>
     );
 }
