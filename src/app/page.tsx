@@ -2,11 +2,9 @@ import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
     return (
-        <div className="z-40">
+        <div className="z-0 ">
             {/* Hero section */}
-            <div className="h-screen">
-                <HeroSection/>
-            </div>
+            <HeroSection/>
 
             {/* Project Showcase */}
             <div className="h-screen">

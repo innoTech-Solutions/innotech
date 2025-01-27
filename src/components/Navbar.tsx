@@ -32,7 +32,7 @@ export default function Navbar() {
     return (
         <div className="fixed top-0 left-1/2 -translate-x-1/2 z-10">
             <motion.div
-                className="flex px-8 py-4 bg-opacity-50 rounded-xl bg-neutral-800 flex-row items-center gap-12"
+                className="flex px-8 py-2 my-2 bg-opacity-50 rounded-full bg-neutral-800 flex-row items-center gap-12"
                 initial={{ y: 0 }}
                 animate={{ y: scrollDirection === "down" ? "-100%" : "0%" }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -51,7 +51,7 @@ export default function Navbar() {
                     color="white"
                     size={25}
                 />
-                <Button className="bg-sky-400 hover:bg-sky-700 cursor-pointer p-4 rounded-md text-md py-5">
+                <Button className="bg-sky-400 hover:bg-sky-700 cursor-pointer p-4 rounded-full text-sm py-4">
                     <Link href="/contact-form" className="text-black">
                         Let&apos;s talk
                     </Link>
