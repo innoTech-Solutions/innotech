@@ -30,9 +30,9 @@ export default function Navbar() {
     }, []);
 
     return (
-        <div className="flex  justify-center items-center">
+        <div className="flex justify-center">
             <motion.div
-                className="flex px-8 py-4 bg-opacity-50 rounded-xl bg-neutral-800 flex-row items-center gap-12"
+                className="flex px-8 py-4 bg-opacity-50 rounded-xl bg-neutral-800 flex-row items-center gap-12 fixed"
                 initial={{ y: 0 }}
                 animate={{ y: scrollDirection === "down" ? "-100%" : "0%" }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
