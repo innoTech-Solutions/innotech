@@ -1,3 +1,4 @@
+import WhyChooseUs from '@/components/choose-us';
 import HeroSection from "@/components/HeroSection";
 
 export default function Home() {
@@ -11,10 +12,7 @@ export default function Home() {
                 <h1>Project showcase</h1>
             </div>
 
-            {/* Why choose us */}
-            <div className="h-screen">
-                <h1>Why choose us</h1>
-            </div>
+            <WhyChooseUs/>
 
             {/* Testimonials */}
             <div className="h-screen">
