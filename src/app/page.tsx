@@ -5,7 +5,7 @@ import Process from "@/components/Process";
 
 export default function Home() {
 	return (
-		<div className="z-0 bg-[#020125]">
+		<div className="z-0">
 			{/* Hero section */}
 			<HeroSection />
 

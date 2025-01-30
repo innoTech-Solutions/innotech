@@ -63,7 +63,7 @@ function Cards({
 			whileInView={{ y: 0, opacity: 1 }}
 			transition={{ duration: 0.4, delay: delay, ease: "linear" }}
 		>
-			<Card className="min-h-fit h-[400px] rounded-lg relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/100">
+			<Card className="min-h-fit h-[400px] relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/100">
 				<CardHeader className="bg-slate-900">
 					<CardTitle>
 						<span className="text-2xl flex flex-row gap-4 items-center font-normal">{title}</span>
