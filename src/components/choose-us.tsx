@@ -14,7 +14,7 @@ export default function WhyChooseUs(){
     };
 
     return(
-        <div className="relative min-h-screen flex flex-col justify-center items-center">
+        <div className="relative h-screen flex flex-col justify-center items-center">
             <p className="text-md font-semibold tracking-widest text-center">Why Choose Our</p>
             <h1 className="text-5xl font-bold text-cyan-400 mt-3 uppercase text-center">Services</h1>
             <div className="flex flex-wrap justify-center items-center mt-5 gap-5">

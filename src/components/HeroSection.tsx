@@ -24,7 +24,7 @@ export default function HeroSection() {
                 </div>
 
                 <div className="flex flex-row gap-4">
-                    <InteractiveHoverButton>Projects</InteractiveHoverButton>
+                    <InteractiveHoverButton>Works</InteractiveHoverButton>
                     <InteractiveHoverButton>Services</InteractiveHoverButton>
                 </div>
             </div>

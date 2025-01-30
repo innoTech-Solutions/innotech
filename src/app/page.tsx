@@ -2,16 +2,15 @@ import WhyChooseUs from "@/components/choose-us";
 import HeroSection from "@/components/HeroSection";
 import { Pricing } from "@/components/Pricing";
 import Footer from '@/components/footer';
+import ProjectShowcase from "@/components/ProjectShowcase";
 
 export default function Home() {
     return (
         <div className="z-0 ">
             <HeroSection/>
 
-            {/* Project Showcase */}
-            <div className="h-screen">
-                <h1>Project showcase</h1>
-            </div>
+            <ProjectShowcase/>
+
             <WhyChooseUs/>
             
             {/* Testimonials */}
