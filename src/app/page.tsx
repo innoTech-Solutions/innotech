@@ -1,10 +1,11 @@
 import WhyChooseUs from "@/components/choose-us";
 import HeroSection from "@/components/HeroSection";
 import { Pricing } from "@/components/Pricing";
+import Process from "@/components/Process";
 
 export default function Home() {
 	return (
-		<div className="z-0 ">
+		<div className="z-0 bg-[#020125]">
 			{/* Hero section */}
 			<HeroSection />
 
@@ -14,6 +15,9 @@ export default function Home() {
 			</div>
 
 			<WhyChooseUs />
+
+			{/* Services */}
+			<Process />
 
 			{/* Testimonials */}
 			<div className="h-screen">

@@ -1,30 +1,10 @@
 "use client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
 import Link from "next/link";
-
-const items = [
-	{
-		title: "Basic",
-		price: "PHP 5,000",
-		description: "A simple website, personal use",
-		features: ["Responsive", "1 - 3 pages", "Static Website"],
-	},
-	{
-		title: "Standard",
-		price: "PHP 15,000",
-		description: "For businesses",
-		features: ["Responsive", "5 - 10 pages", "Dynamic Website"],
-	},
-	{
-		title: "Custom",
-		price: "PHP 20,000",
-		description: "For large businesses",
-		features: ["Responsive", "10 - 15 pages", "Dynamic Website"],
-	},
-];
+import pricing from "@/data/pricing";
 
 export const Pricing = () => {
 	return (
@@ -46,14 +26,14 @@ export const Pricing = () => {
 						</p>
 					</motion.div>
 					<motion.div className="grid text-left grid-cols-1 px-20 lg:grid-cols-3 w-full gap-1 place-items-center">
-						{items.map((item, index) => (
+						{pricing.map((price, index) => (
 							<Cards
 								key={index}
 								delay={index * 0.3}
-								title={item.title}
-								price={item.price}
-								description={item.description}
-								features={item.features}
+								title={price.title}
+								price={price.price}
+								description={price.description}
+								features={price.features}
 							/>
 						))}
 					</motion.div>
@@ -78,12 +58,12 @@ function Cards({
 }) {
 	return (
 		<motion.div
-			className="w-full relative transition-all"
+			className="w-full relative transition-all px-6"
 			initial={{ y: "50%", opacity: 0.5 }}
 			whileInView={{ y: 0, opacity: 1 }}
 			transition={{ duration: 0.4, delay: delay, ease: "linear" }}
 		>
-			<Card className="w-5/6 min-h-fit h-[400px] rounded-lg relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/100">
+			<Card className="min-h-fit h-[400px] rounded-lg relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/100">
 				<CardHeader className="bg-slate-900">
 					<CardTitle>
 						<span className="text-2xl flex flex-row gap-4 items-center font-normal">{title}</span>
@@ -99,7 +79,6 @@ function Cards({
 							{features.map((feature, index) => (
 								<div key={index} className={`${index === 0 ? "" : "border-t border-gray-700 pt-2"} border-gray-700 pt-2`}>
 									<div className="w-full flex flex-row gap-4">
-										{/* <Check className="w-4 h-4 mt-1 text-primary" /> */}
 										<div className="w-full text-center flex flex-col">
 											<p>{feature}</p>
 										</div>
@@ -107,9 +86,6 @@ function Cards({
 								</div>
 							))}
 						</div>
-						{/* <Button variant="outline" className="gap-4">
-						Take <MoveRight className="w-4 h-4" />
-						</Button> */}
 					</div>
 					<div className="w-full">
 						<Button asChild variant="outline" className="gap-4 bg-slate-900 hover:bg-cyan-400 hover:text-black w-full relative z-10">
