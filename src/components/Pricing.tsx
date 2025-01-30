@@ -3,60 +3,34 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const items = [
 	{
 		title: "Basic",
-		price: "5,000",
-		description: "For small businesses",
+		price: "PHP 5,000",
+		description: "For small businesses / personal use",
 		features: ["Responsive", "1 - 3 pages", "Static Website"],
 	},
 	{
 		title: "Standard",
-		price: "10,000",
+		price: "PHP 10,000",
 		description: "For medium-sized businesses",
 		features: ["Responsive", "5 - 10 pages", "Dynamic Website"],
 	},
 	{
 		title: "Custom",
-		price: "15,000",
+		price: "PHP 12,000",
 		description: "For large businesses",
 		features: ["Responsive", "10 - 15 pages", "Dynamic Website"],
 	},
 ];
 
 export const Pricing = () => {
-	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-	const [isHovered, setIsHovered] = useState<"visible" | "hidden">("hidden");
-	const ref = React.useRef<HTMLDivElement>(null);
-
-	useEffect(() => {
-		const handleMouseMove = (event: MouseEvent) => {
-			if (ref.current) {
-				const { left, top } = ref.current.getBoundingClientRect();
-
-				setMousePosition({
-					x: event.clientX - left,
-					y: event.clientY - top,
-				});
-			}
-		};
-
-		window.addEventListener("mousemove", handleMouseMove);
-		return () => window.removeEventListener("mousemove", handleMouseMove);
-	}, []);
-
 	return (
 		<div className="h-full w-full flex flex-col justify-center items-center overflow-hidden">
 			<div className="container mx-auto w-full">
-				<div
-					className="flex text-center justify-center items-center gap-4 flex-col relative"
-					onMouseEnter={() => setIsHovered("visible")}
-					onMouseLeave={() => setIsHovered("hidden")}
-					ref={ref}
-				>
+				<div className="flex text-center justify-center items-center gap-4 flex-col relative">
 					{/* <Badge variant="outline">Pricing</Badge> */}
 					<motion.div
 						initial={{ y: "100%", opacity: 0 }}
@@ -75,7 +49,7 @@ export const Pricing = () => {
 						{items.map((item, index) => (
 							<Cards
 								key={index}
-								delay={index * 0.2}
+								delay={index * 0.3}
 								title={item.title}
 								price={item.price}
 								description={item.description}
@@ -83,17 +57,6 @@ export const Pricing = () => {
 							/>
 						))}
 					</motion.div>
-					<div
-						className="absolute w-[200px] h-[200px] bg-cyan-600 rounded-full blur-3xl transition-all duration-0 z-0"
-						style={{
-							top: mousePosition.y,
-							left: mousePosition.x,
-							transform: "translate(-50%, -50%)",
-							transition: "all 0.500ms",
-							opacity: isHovered === "visible" ? 0.9 : 0,
-							zIndex: -20,
-						}}
-					/>
 				</div>
 			</div>
 		</div>
@@ -118,20 +81,20 @@ function Cards({
 			className="w-full relative transition-all"
 			initial={{ y: "50%", opacity: 0.5 }}
 			whileInView={{ y: 0, opacity: 1 }}
-			transition={{ duration: 0.8, delay: delay, type: "tween", ease: "linear" }}
+			transition={{ duration: 0.4, delay: delay, ease: "linear" }}
 		>
-			<Card className="w-5/6 min-h-fit h-[400px] rounded-lg relative overflow-hidden">
+			<Card className="w-5/6 min-h-fit h-[400px] rounded-lg relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/100">
 				<CardHeader className="bg-slate-900">
 					<CardTitle>
 						<span className="text-2xl flex flex-row gap-4 items-center font-normal">{title}</span>
 					</CardTitle>
 					<CardDescription>{description}</CardDescription>
 					<p className="flex flex-row  items-center gap-2 text-xl">
-						<span className="text-4xl">PHP {price}</span>
+						<span className="text-4xl">{price}</span>
 					</p>
 				</CardHeader>
 				<CardContent className="flex flex-col gap-4 min-h-fit h-[300px] justify-between relative overflow-hidden">
-					<div className="flex flex-col gap-8 justify-start">
+					<div className="flex flex-col gap-8 justify-start mt-4">
 						<div className="flex flex-col gap-4 justify-start">
 							{features.map((feature, index) => (
 								<div key={index} className={`${index === 0 ? "" : "border-t border-gray-700 pt-2"} border-gray-700 pt-2`}>
