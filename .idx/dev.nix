@@ -3,6 +3,7 @@
   packages = [
     pkgs.nodejs_20
     pkgs.corepack
+    pkgs.tree
   ];
   idx.extensions = [
     
