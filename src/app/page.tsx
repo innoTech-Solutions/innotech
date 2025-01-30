@@ -1,5 +1,6 @@
-import WhyChooseUs from '@/components/choose-us';
+import WhyChooseUs from "@/components/choose-us";
 import HeroSection from "@/components/HeroSection";
+import { Pricing } from "@/components/Pricing";
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
             </div>
             {/* Pricing */}
             <div className="h-screen">
-                <h1>PRICING</h1>
+				<Pricing />
             </div>
             <Footer/>
         </div>
