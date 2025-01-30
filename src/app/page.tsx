@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import { Pricing } from "@/components/Pricing";
 import Footer from '@/components/footer';
 import ProjectShowcase from "@/components/ProjectShowcase";
+import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
     return (
@@ -13,10 +14,10 @@ export default function Home() {
 
             <WhyChooseUs/>
             
-            {/* Testimonials */}
-            <div className="h-screen">
-                <h1>Testimonials</h1>
-            </div>
+            {/* TODO: (add if may testimonials na) */}
+            {/* <div className="max-w-7xl h-screen mx-auto">
+                <Testimonials/>
+            </div> */}
 
             {/* Meet the team */}
             <div className="h-screen">
@@ -26,6 +27,7 @@ export default function Home() {
             <div className="h-screen">
 				<Pricing />
             </div>
+
             <Footer/>
         </div>
     );
