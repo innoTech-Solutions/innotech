@@ -44,7 +44,7 @@ export default function Navbar() {
                         alt="icon"
                         height={25}
                         width={25}
-                        src="/icontransparent.png"
+                        src="/innotech_transparent.png"
                     />
                 </Link>
                 <Briefcase

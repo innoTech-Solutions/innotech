@@ -3,8 +3,11 @@ import HeroSection from "@/components/HeroSection";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/footer";
 import ProjectShowcase from "@/components/ProjectShowcase";
+import Process from '@/components/Process';
 import { Testimonials } from "@/components/Testimonials";
 import Process from "@/components/Process";
+import MeetTheTeam from "@/components/MeetTheTeam";
+
 
 export default function Home() {
 	return (
@@ -20,23 +23,12 @@ export default function Home() {
                 <Testimonials/>
             </div> */}
 
-			{/* Services */}
 			<Process />
+            {/* Meet the team */}
+            <MeetTheTeam/>
 
-			{/* Testimonials */}
-			<div className="h-screen">
-				<h1>Testimonials</h1>
-			</div>
-
-			{/* Meet the team */}
-			<div className="h-screen">
-				<h1>Meet the team</h1>
-			</div>
-
-			<div className="h-screen">
-				<Pricing />
-			</div>
-			<Footer />
-		</div>
-	);
+			<Pricing />
+            <Footer/>
+        </div>
+    );
 }
