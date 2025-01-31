@@ -5,8 +5,6 @@ import Footer from '@/components/footer';
 import ProjectShowcase from "@/components/ProjectShowcase";
 import Process from '@/components/Process';
 import { Testimonials } from "@/components/Testimonials";
-import Process from "@/components/Process";
-import Team from "@/components/MeetTheTeam";
 import MeetTheTeam from "@/components/MeetTheTeam";
 
 export default function Home() {
@@ -24,9 +22,6 @@ export default function Home() {
             </div> */}
 
 			<Process />
-
-
-            {/* Meet the team */}
             <MeetTheTeam/>
 
 			<Pricing />
