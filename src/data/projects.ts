@@ -6,13 +6,6 @@ export const projects = [
         image: "https://i.imgur.com/XAPKNRh.jpeg",
         link: ""
     },
-    {
-        name: "Real estate",
-        tags: ["react", "supabase"],
-        hoverImage: "https://i.imgur.com/Ckr6u7Y.mp4",
-        image: "https://i.imgur.com/XAPKNRh.jpeg",
-        link: ""
-    },
 ];
 
 

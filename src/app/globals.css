@@ -66,4 +66,7 @@ body {
     --color-4: 195 100% 63%;
     --color-5: 90 100% 63%;
   }
+  .light {
+    --background: #f5f5f5;
+  }
 }

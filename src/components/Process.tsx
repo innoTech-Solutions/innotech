@@ -5,16 +5,10 @@ export default function Process() {
 	return (
 		<div className="w-full py-20 lg:py-40">
 			<div className="container mx-auto">
-				<div className="grid grid-cols-1 gap-8 items-center px-4 md:px-16 md:px-8">
-					<div className="flex gap-4 flex-col justify-center items-center">
-						<div>
-							<div>The Process</div>
-						</div>
-						<div className="flex gap-4 flex-col ">
-							<h1 className="text-5xl md:text-6xl max-w-lg tracking-tighter text-center">Road to your success!</h1>
-						</div>
-					</div>
-					<div className="grid grid-cols-2 md:grid-cols-3 md:gap-4 gap-2">
+				<div className="grid grid-cols-1 gap-3 items-center px-4 md:px-16 md:px-8">
+            		<p className="text-md font-semibold tracking-widest text-center">Process</p>
+					<h1 className="text-5xl font-bold text-cyan-400 mt-3 uppercase text-center">How we deliver it</h1>
+					<div className="grid grid-cols-2 md:grid-cols-3 mx-20 md:gap-4 gap-2">
 						{processes.map((process, index) => {
 							return <ProcessCard key={index} process={process} />;
 						})}
