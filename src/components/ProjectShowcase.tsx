@@ -11,14 +11,18 @@ export default function ProjectShowcase() {
     const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
     return (
-        <div className="flex min-h-screen flex-col justify-center items-center w-full px-5"> 
-            <h1 className="text-5xl font-fjalla w-full text-left">
+        <div className="flex flex-col max-w-7xl px-4 mx-auto my-12">
+            <h1 className="text-5xl font-fjalla">
                 Selected <em className="text-cyan-400">Works</em>
             </h1>
 
-            <div className="flex flex-wrap justify-center items-center my-5 gap-5 w-1/2">
+            <div className="flex flex-wrap items-center my-4 gap-4">
                 {projects.map((project, index) => (
-                    <Link href={project.link} key={index} className="w-full md:w-1/2">
+                    <Link
+                        href={project.link}
+                        key={index}
+                        className="w-full md:w-1/2"
+                    >
                         <div
                             className={cn(
                                 "group cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl flex flex-col justify-end p-4 border border-transparent dark:border-neutral-800",
@@ -32,7 +36,8 @@ export default function ProjectShowcase() {
                             onMouseEnter={() => setHoveredProject(index)}
                             onMouseLeave={() => setHoveredProject(null)}
                         >
-                            {hoveredProject === index && project.hoverImage.endsWith(".mp4") ? (
+                            {hoveredProject === index &&
+                            project.hoverImage.endsWith(".mp4") ? (
                                 <video
                                     className="absolute inset-0 w-full h-full object-cover"
                                     src={project.hoverImage}
@@ -75,7 +80,7 @@ export default function ProjectShowcase() {
                         </div>
                     </Link>
                 ))}
-            </div> 
+            </div>
         </div>
     );
 }

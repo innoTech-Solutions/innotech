@@ -3,9 +3,9 @@ import HeroSection from "@/components/HeroSection";
 import Pricing from "@/components/Pricing";
 import Footer from "@/components/footer";
 import ProjectShowcase from "@/components/ProjectShowcase";
-import { Testimonials } from "@/components/Testimonials";
 import Process from "@/components/Process";
 import MeetTheTeam from "@/components/MeetTheTeam";
+import { CTA1 } from "@/components/CallToAction";
 
 
 export default function Home() {
@@ -27,6 +27,7 @@ export default function Home() {
             <MeetTheTeam/>
 
 			<Pricing />
+            <CTA1/>
             <Footer/>
         </div>
     );

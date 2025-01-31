@@ -3,7 +3,6 @@
 import { Briefcase } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import ModeToggle from '@/components/mode-toggle';
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { motion } from "motion/react";
@@ -52,7 +51,6 @@ export default function Navbar() {
                     color="white"
                     size={25}
                 />
-                <ModeToggle/>
                 <Button className="bg-sky-400 hover:bg-sky-700 cursor-pointer p-4 rounded-full text-sm py-4">
                     <Link href="/contact-form" className="text-black">
                         Let&apos;s talk
