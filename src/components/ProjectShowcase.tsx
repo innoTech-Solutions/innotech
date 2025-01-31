@@ -11,7 +11,7 @@ export default function ProjectShowcase() {
     const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
     return (
-        <div className="flex h-screen flex-col max-w-7xl mx-auto p-4 mt-16"> {/* Added mt-16 for margin-top */}
+        <div className="flex min-h-screen flex-col max-w-7xl mx-auto p-4 mt-16"> {/* Added mt-16 for margin-top */}
             <h1 className="text-5xl">
                 Selected <em className="text-sky-400">Works</em>
             </h1>

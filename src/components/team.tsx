@@ -1,5 +1,7 @@
 export default function Team(){
     return(
-        <div></div>
+        <div className="min-h-screen flex flex-col justify-center items-center">
+            Meet the Team
+        </div>
     )
 }

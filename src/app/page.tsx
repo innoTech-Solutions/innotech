@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import Pricing from "@/components/Pricing";
 import Footer from '@/components/footer';
 import ProjectShowcase from "@/components/ProjectShowcase";
+import Team from '@/components/team';
 import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
@@ -19,10 +20,7 @@ export default function Home() {
                 <Testimonials/>
             </div> */}
 
-            {/* Meet the team */}
-            <div className="h-screen">
-                <h1>Meet the team</h1>
-            </div>
+            <Team/>
 
             <div className="h-screen">
 				<Pricing />
