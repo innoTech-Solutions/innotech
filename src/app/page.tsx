@@ -1,11 +1,11 @@
 import WhyChooseUs from "@/components/choose-us";
 import HeroSection from "@/components/HeroSection";
-import { Pricing } from "@/components/Pricing";
+import Pricing from "@/components/Pricing";
 import Footer from '@/components/footer';
 
 export default function Home() {
     return (
-        <div className="z-0 ">
+        <div>
             <HeroSection/>
 
             {/* Project Showcase */}
@@ -23,10 +23,7 @@ export default function Home() {
             <div className="h-screen">
                 <h1>Meet the team</h1>
             </div>
-
-            <div className="h-screen">
-				<Pricing />
-            </div>
+			<Pricing />
             <Footer/>
         </div>
     );

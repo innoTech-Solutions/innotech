@@ -14,7 +14,7 @@ export default function WhyChooseUs(){
     };
 
     return(
-        <div className="relative min-h-screen flex flex-col justify-center items-center">
+        <div className="relative min-h-screen flex flex-col justify-center items-center text-white">
             <p className="text-md font-semibold tracking-widest text-center">Why Choose Our</p>
             <h1 className="text-5xl font-bold text-cyan-400 mt-3 uppercase text-center">Services</h1>
             <div className="flex flex-wrap justify-center items-center mt-5 gap-5">
@@ -23,11 +23,10 @@ export default function WhyChooseUs(){
                     return (
                     <div
                         key={index}
-                        className="flex 
+                        className="group flex 
                                    flex-col 
                                    items-center 
                                    rounded-md 
-                                   bg-transparent 
                                    p-10 
                                    w-80 
                                    h-64
@@ -37,13 +36,13 @@ export default function WhyChooseUs(){
                                    transition-all"
                     >
                         <div className="flex justify-between items-center w-full mb-5">
-                            <Icon size={24}/>
-                            <span className="font-bold text-cyan-400">0{index + 1}</span>
+                            <Icon size={24} className="group-hover:text-cyan-400 transition-colors"/>
+                            <span className="font-bold group-hover:text-cyan-400 transition-colors">0{index + 1}</span>
                         </div>
-                        <p className="font-bold mb-5 text-xl text-left w-full">
+                        <p className="font-bold mb-5 text-xl text-left w-full group-hover:text-cyan-400 transition-colors">
                             {reason.title}
                         </p>
-                        <p className="text-gray-400 text-left w-full">
+                        <p className="group-hover:text-white text-gray-400 text-left w-full">
                             {reason.description}
                         </p>
                     </div>

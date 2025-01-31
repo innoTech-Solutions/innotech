@@ -26,7 +26,7 @@ const items = [
 	},
 ];
 
-export const Pricing = () => {
+export default function Pricing () {
 	return (
 		<div className="h-full w-full flex flex-col justify-center items-center overflow-hidden">
 			<div className="container mx-auto w-full">
