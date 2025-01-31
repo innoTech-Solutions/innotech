@@ -11,12 +11,12 @@ export default function Process() {
 							<div>The Process</div>
 						</div>
 						<div className="flex gap-4 flex-col ">
-							<h1 className="text-5xl md:text-7xl max-w-lg tracking-tighter text-center">Road to your success!</h1>
+							<h1 className="text-5xl md:text-6xl max-w-lg tracking-tighter text-center">Road to your success!</h1>
 						</div>
 					</div>
 					<div className="grid grid-cols-2 md:grid-cols-3 md:gap-4 gap-2">
 						{processes.map((process, index) => {
-							return <ProcessCard key={index} process={process} index={index} />;
+							return <ProcessCard key={index} process={process} />;
 						})}
 					</div>
 				</div>
@@ -25,13 +25,7 @@ export default function Process() {
 	);
 }
 
-function ProcessCard({
-	process,
-	index,
-}: {
-	process: { title: string; description: string; contents: string[]; icon: React.ComponentType<any> };
-	index: number;
-}) {
+function ProcessCard({ process }: { process: { title: string; description: string; contents: string[]; icon: React.ComponentType<any> } }) {
 	return (
 		<Card className={`md:w-[400px] md:p-4 bg-muted border-none md:w-full`}>
 			<CardHeader className="flex md:flex-row items-center gap-3">

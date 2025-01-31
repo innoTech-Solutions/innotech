@@ -21,7 +21,7 @@ const pricing = [
 	{
 		title: "Custom",
 		price: "PHP 20,000",
-		description: "For large businesses",
+		description: "For specific needs",
 		features: ["Responsive", "10 - 15 pages", "Dynamic Website"],
 	},
 ];

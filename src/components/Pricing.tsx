@@ -19,7 +19,6 @@ export const Pricing = () => {
 		<div className="h-full w-full flex flex-col justify-center items-center overflow-hidden">
 			<div className="container mx-auto w-full">
 				<div className="flex text-center justify-center items-center gap-4 flex-col relative">
-					{/* <Badge variant="outline">Pricing</Badge> */}
 					<motion.div
 						initial={{ y: "100%", opacity: 0 }}
 						animate={{ y: 0, opacity: 1 }}
@@ -41,7 +40,7 @@ export const Pricing = () => {
 										{pricing.map((price, index) => (
 											<CarouselItem key={index} className="w-[100px]">
 												<Cards
-													delay={index * 0.3}
+													delay={0}
 													title={price.title}
 													price={price.price}
 													description={price.description}
@@ -59,7 +58,7 @@ export const Pricing = () => {
 							pricing.map((price, index) => (
 								<Cards
 									key={index}
-									delay={0}
+									delay={index * 0.3}
 									title={price.title}
 									price={price.price}
 									description={price.description}
@@ -91,20 +90,12 @@ function Cards({
 	isMobile: boolean;
 }) {
 	const initials = isMobile ? { y: 0, opacity: 1 } : { y: "50%", opacity: 0.5 };
-	const whileInView = isMobile ? { y: 0, opacity: 1 } : { y: 0, opacity: 1 };
+	const animate = isMobile ? { y: 0, opacity: 1 } : { y: 0, opacity: 1 };
 	const transition = isMobile ? { duration: 0, delay: 0, ease: "linear" } : { duration: 0.4, delay: delay, ease: "linear" };
 	return (
-		<motion.div
-			className="md:w-full transition-all md:px-6"
-			// initial={{ y: "50%", opacity: 0.5 }}
-			// whileInView={{ y: 0, opacity: 1 }}
-			// transition={{ duration: 0.4, delay: delay, ease: "linear" }}
-			initial={initials}
-			whileInView={whileInView}
-			transition={transition}
-		>
-			<Card className="min-h-fit h-[400px] overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/100">
-				<CardHeader className="bg-slate-900">
+		<motion.div className="md:w-full transition-all md:px-6" initial={initials} animate={animate} transition={transition}>
+			<Card className="min-h-fit border-none h-[400px] overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/100">
+				<CardHeader className="bg-cyan-900">
 					<CardTitle>
 						<span className="text-2xl flex flex-row gap-4 items-center font-normal">{title}</span>
 					</CardTitle>
@@ -128,7 +119,12 @@ function Cards({
 						</div>
 					</div>
 					<div className="w-full">
-						<Button asChild variant="outline" className="gap-4 bg-slate-900 hover:bg-cyan-400 hover:text-black w-full relative z-10">
+						<Button
+							asChild
+							variant="outline" // hover:bg-cyan-400 // before:w-full before:h-0 hover:before:h-full
+							className="gap-4 bg-cyan-900 hover:bg-slate-900 hover:text-black delay-300 w-full relative z-10
+							before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-[100%] hover:before:bottom-0 before:bg-cyan-400 before:z-[-1] before:transition-all before:delay-300"
+						>
 							<Link href="/">Get Started</Link>
 						</Button>
 					</div>
