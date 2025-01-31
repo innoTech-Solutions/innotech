@@ -105,8 +105,11 @@ export default function Footer() {
             <div className="container mx-auto px-6">
                 <div className="flex justify-between items-start gap-8">
                     <div className="flex flex-col space-y-3">
-                        <img
+                        <Image
                             src="/innotech_transparent.png"
+                            width={0}
+                            height={0}
+                            alt="Innotech Icon"
                             className="w-14 h-14"
                         />
                         <div className="md:w-1/2 space-y-4">

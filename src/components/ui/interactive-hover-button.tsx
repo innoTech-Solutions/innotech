@@ -3,7 +3,17 @@ import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface InteractiveHoverButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    className?: string;
+    children: React.ReactNode;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+    onHover?: React.MouseEventHandler<HTMLButtonElement>;
+    onLeave?: React.MouseEventHandler<HTMLButtonElement>;
+    disabled?: boolean;
+    loading?: boolean;
+    loadingText?: string;
+    icon?: React.ReactNode;
+  }
 
 export const InteractiveHoverButton = React.forwardRef<
   HTMLButtonElement,
