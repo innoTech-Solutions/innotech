@@ -1,37 +1,24 @@
 "use client";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import React from "react";
 import { motion } from "framer-motion";
+import React from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import pricing from "@/data/pricing";
+import { CarouselNext, CarouselPrevious, Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
-const items = [
-	{
-		title: "Basic",
-		price: "PHP 5,000",
-		description: "A simple website, personal use",
-		features: ["Responsive", "1 - 3 pages", "Static Website"],
-	},
-	{
-		title: "Standard",
-		price: "PHP 15,000",
-		description: "For businesses",
-		features: ["Responsive", "5 - 10 pages", "Dynamic Website"],
-	},
-	{
-		title: "Custom",
-		price: "PHP 20,000",
-		description: "For large businesses",
-		features: ["Responsive", "10 - 15 pages", "Dynamic Website"],
-	},
-];
 
 export default function Pricing () {
+  	const [isMobile, setIsMobile] = useState(false);
+	  const ArrowStyles = "h-10 w-10 border border-gray-500 rounded-[500px] p-2";
+	  useEffect(() => {
+		  setIsMobile(window.innerWidth < 768);
+	  }, []);
 	return (
 		<div className="h-full w-full flex flex-col justify-center items-center overflow-hidden">
 			<div className="container mx-auto w-full">
 				<div className="flex text-center justify-center items-center gap-4 flex-col relative">
-					{/* <Badge variant="outline">Pricing</Badge> */}
 					<motion.div
 						initial={{ y: "100%", opacity: 0 }}
 						animate={{ y: 0, opacity: 1 }}
@@ -46,16 +33,40 @@ export default function Pricing () {
 						</p>
 					</motion.div>
 					<motion.div className="grid text-left grid-cols-1 px-20 lg:grid-cols-3 w-full gap-1 place-items-center">
-						{items.map((item, index) => (
-							<Cards
-								key={index}
-								delay={index * 0.3}
-								title={item.title}
-								price={item.price}
-								description={item.description}
-								features={item.features}
-							/>
-						))}
+						{isMobile ? (
+							<div className="flex gap-2 flex-row items-center">
+								<Carousel>
+									<CarouselContent>
+										{pricing.map((price, index) => (
+											<CarouselItem key={index} className="w-[100px]">
+												<Cards
+													delay={0}
+													title={price.title}
+													price={price.price}
+													description={price.description}
+													features={price.features}
+													isMobile={true}
+												/>
+											</CarouselItem>
+										))}
+									</CarouselContent>
+									<CarouselPrevious className={ArrowStyles} />
+									<CarouselNext className={ArrowStyles} />
+								</Carousel>
+							</div>
+						) : (
+							pricing.map((price, index) => (
+								<Cards
+									key={index}
+									delay={index * 0.3}
+									title={price.title}
+									price={price.price}
+									description={price.description}
+									features={price.features}
+									isMobile={false}
+								/>
+							))
+						)}
 					</motion.div>
 				</div>
 			</div>
@@ -69,22 +80,22 @@ function Cards({
 	description,
 	features,
 	delay,
+	isMobile,
 }: {
 	title: string;
 	price: string;
 	description: string;
 	features: string[];
 	delay: number;
+	isMobile: boolean;
 }) {
+	const initials = isMobile ? { y: 0, opacity: 1 } : { y: "50%", opacity: 0.5 };
+	const animate = isMobile ? { y: 0, opacity: 1 } : { y: 0, opacity: 1 };
+	const transition = isMobile ? { duration: 0, delay: 0, ease: "linear" } : { duration: 0.4, delay: delay, ease: "linear" };
 	return (
-		<motion.div
-			className="w-full relative transition-all"
-			initial={{ y: "50%", opacity: 0.5 }}
-			whileInView={{ y: 0, opacity: 1 }}
-			transition={{ duration: 0.4, delay: delay, ease: "linear" }}
-		>
-			<Card className="w-5/6 min-h-fit h-[400px] rounded-lg relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/100">
-				<CardHeader className="bg-slate-900">
+		<motion.div className="md:w-full transition-all md:px-6" initial={initials} animate={animate} transition={transition}>
+			<Card className="min-h-fit border-none h-[400px] overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/100">
+				<CardHeader className="bg-cyan-900">
 					<CardTitle>
 						<span className="text-2xl flex flex-row gap-4 items-center font-normal">{title}</span>
 					</CardTitle>
@@ -99,7 +110,6 @@ function Cards({
 							{features.map((feature, index) => (
 								<div key={index} className={`${index === 0 ? "" : "border-t border-gray-700 pt-2"} border-gray-700 pt-2`}>
 									<div className="w-full flex flex-row gap-4">
-										{/* <Check className="w-4 h-4 mt-1 text-primary" /> */}
 										<div className="w-full text-center flex flex-col">
 											<p>{feature}</p>
 										</div>
@@ -107,12 +117,14 @@ function Cards({
 								</div>
 							))}
 						</div>
-						{/* <Button variant="outline" className="gap-4">
-						Take <MoveRight className="w-4 h-4" />
-						</Button> */}
 					</div>
 					<div className="w-full">
-						<Button asChild variant="outline" className="gap-4 bg-slate-900 hover:bg-cyan-400 hover:text-black w-full relative z-10">
+						<Button
+							asChild
+							variant="outline" // hover:bg-cyan-400 // before:w-full before:h-0 hover:before:h-full
+							className="gap-4 bg-cyan-900 hover:bg-slate-900 hover:text-black delay-300 w-full relative z-10
+							before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:bottom-[100%] hover:before:bottom-0 before:bg-cyan-400 before:z-[-1] before:transition-all before:delay-300"
+						>
 							<Link href="/">Get Started</Link>
 						</Button>
 					</div>
