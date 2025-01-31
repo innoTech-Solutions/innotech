@@ -1,23 +1,19 @@
-interface Project {
-    image: string;
-    title: string;
-    description: string;
-    techUsed: string[];
-}
-
-const projects: Project[] = [
+export const projects = [
     {
-        image: '',
-        title: 'Real Estate',
-        description: 'A comprehensive real estate platform.',
-        techUsed: ['React', 'Supabase', 'TypeScript']
+        name: "Real estate",
+        tags: ["react", "supabase"],
+        hoverImage: "https://i.imgur.com/Ckr6u7Y.mp4",
+        image: "https://i.imgur.com/XAPKNRh.jpeg",
+        link: ""
     },
     {
-        image: '',
-        title: 'Clothing Store',
-        description: 'An online store for clothing and accessories.',
-        techUsed: ['React', 'Supabase', 'TypeScript']
-    }
+        name: "Real estate",
+        tags: ["react", "supabase"],
+        hoverImage: "https://i.imgur.com/Ckr6u7Y.mp4",
+        image: "https://i.imgur.com/XAPKNRh.jpeg",
+        link: ""
+    },
 ];
+
 
 export default projects;
