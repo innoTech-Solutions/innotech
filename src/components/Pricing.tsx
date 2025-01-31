@@ -3,10 +3,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import React from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import pricing from "@/data/pricing";
+import { CarouselNext, CarouselPrevious, Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 export const Pricing = () => {
+	const [isMobile, setIsMobile] = useState(false);
+	const ArrowStyles = "h-10 w-10 border border-gray-500 rounded-[500px] p-2";
+	useEffect(() => {
+		setIsMobile(window.innerWidth < 768);
+	}, []);
+
 	return (
 		<div className="h-full w-full flex flex-col justify-center items-center overflow-hidden">
 			<div className="container mx-auto w-full">
@@ -26,16 +34,40 @@ export const Pricing = () => {
 						</p>
 					</motion.div>
 					<motion.div className="grid text-left grid-cols-1 px-20 lg:grid-cols-3 w-full gap-1 place-items-center">
-						{pricing.map((price, index) => (
-							<Cards
-								key={index}
-								delay={index * 0.3}
-								title={price.title}
-								price={price.price}
-								description={price.description}
-								features={price.features}
-							/>
-						))}
+						{isMobile ? (
+							<div className="flex gap-2 flex-row items-center">
+								<Carousel>
+									<CarouselContent>
+										{pricing.map((price, index) => (
+											<CarouselItem key={index} className="w-[100px]">
+												<Cards
+													delay={index * 0.3}
+													title={price.title}
+													price={price.price}
+													description={price.description}
+													features={price.features}
+													isMobile={true}
+												/>
+											</CarouselItem>
+										))}
+									</CarouselContent>
+									<CarouselPrevious className={ArrowStyles} />
+									<CarouselNext className={ArrowStyles} />
+								</Carousel>
+							</div>
+						) : (
+							pricing.map((price, index) => (
+								<Cards
+									key={index}
+									delay={0}
+									title={price.title}
+									price={price.price}
+									description={price.description}
+									features={price.features}
+									isMobile={false}
+								/>
+							))
+						)}
 					</motion.div>
 				</div>
 			</div>
@@ -49,21 +81,29 @@ function Cards({
 	description,
 	features,
 	delay,
+	isMobile,
 }: {
 	title: string;
 	price: string;
 	description: string;
 	features: string[];
 	delay: number;
+	isMobile: boolean;
 }) {
+	const initials = isMobile ? { y: 0, opacity: 1 } : { y: "50%", opacity: 0.5 };
+	const whileInView = isMobile ? { y: 0, opacity: 1 } : { y: 0, opacity: 1 };
+	const transition = isMobile ? { duration: 0, delay: 0, ease: "linear" } : { duration: 0.4, delay: delay, ease: "linear" };
 	return (
 		<motion.div
-			className="w-full relative transition-all px-6"
-			initial={{ y: "50%", opacity: 0.5 }}
-			whileInView={{ y: 0, opacity: 1 }}
-			transition={{ duration: 0.4, delay: delay, ease: "linear" }}
+			className="md:w-full transition-all md:px-6"
+			// initial={{ y: "50%", opacity: 0.5 }}
+			// whileInView={{ y: 0, opacity: 1 }}
+			// transition={{ duration: 0.4, delay: delay, ease: "linear" }}
+			initial={initials}
+			whileInView={whileInView}
+			transition={transition}
 		>
-			<Card className="min-h-fit h-[400px] relative overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/100">
+			<Card className="min-h-fit h-[400px] overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/100">
 				<CardHeader className="bg-slate-900">
 					<CardTitle>
 						<span className="text-2xl flex flex-row gap-4 items-center font-normal">{title}</span>
