@@ -5,6 +5,9 @@ import Footer from '@/components/footer';
 import ProjectShowcase from "@/components/ProjectShowcase";
 import Process from '@/components/Process';
 import { Testimonials } from "@/components/Testimonials";
+import Process from "@/components/Process";
+import Team from "@/components/MeetTheTeam";
+import MeetTheTeam from "@/components/MeetTheTeam";
 
 export default function Home() {
     return (
@@ -24,9 +27,7 @@ export default function Home() {
 
 
             {/* Meet the team */}
-            <div className="h-screen">
-                <h1>Meet the team</h1>
-            </div>
+            <MeetTheTeam/>
 
 			<Pricing />
             <Footer/>
