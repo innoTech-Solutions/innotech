@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { Clock } from "lucide-react";
+import { Clock, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
     Carousel,
@@ -10,6 +10,7 @@ import {
     CarouselItem,
 } from "./ui/carousel";
 import team from "../data/team";
+import Link from "next/link";
 
 export default function MeetTheTeam() {
     const [localTime, setLocalTime] = useState("");
@@ -58,15 +59,20 @@ export default function MeetTheTeam() {
                                         />
                                     </div>
                                     <div className="p-4 w-full flex flex-col gap-4">
-                                        <h2 className="text-2xl font-bold text-center">
-                                            {member.name}
-                                        </h2>
-                                        <p className="text-center text-gray-500">
-                                            {member.role}
-                                        </p>
+                                        <div>
+                                            <Link href={member.portfolio_link ? member.portfolio_link : "/"}>
+                                                <h2 className="text-2xl font-bold text-center hover:underline hover:decoration-wavy hover:decoration-blue-500">
+                                                    {member.name}
+                                                </h2>
+                                            </Link>
+                                            <p className="text-center text-gray-500">
+                                                {member.role}
+                                            </p>
+                                        </div>
 
                                         <div className="flex justify-center gap-4">
                                             <Button className="bg-sky-400 hover:bg-sky-700">
+                                                <Mail/>
                                                 Send Message
                                             </Button>
                                             <div className="flex items-center gap-2 text-sm text-gray-500">

@@ -4,6 +4,7 @@ interface TeamMember {
 	department: string;
 	joined: string;
 	image: string;
+    portfolio_link: string;
 }
 
 const team: TeamMember[] = [
@@ -13,6 +14,7 @@ const team: TeamMember[] = [
 		department: "Operations",
 		joined: "Jan 30, 2023",
 		image: "/team/julian.png",
+        portfolio_link: "https://julianmacato.vercel.app"
 	},
 	{
 		name: "Jameson Gelarman",
@@ -20,6 +22,7 @@ const team: TeamMember[] = [
 		department: "Operations",
 		joined: "Feb 15, 2023",
 		image: "/team/jameson.png",
+        portfolio_link: ""
 	},
 	{
 		name: "Vicente Lepardo",
@@ -27,6 +30,7 @@ const team: TeamMember[] = [
 		department: "Operations",
 		joined: "March 10, 2023",
 		image: "/team/vicente.jpg",
+        portfolio_link: ""
 	},
 
 
