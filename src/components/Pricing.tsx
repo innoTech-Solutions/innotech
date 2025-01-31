@@ -8,13 +8,12 @@ import Link from "next/link";
 import pricing from "@/data/pricing";
 import { CarouselNext, CarouselPrevious, Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
-
-export default function Pricing () {
-  	const [isMobile, setIsMobile] = useState(false);
-	  const ArrowStyles = "h-10 w-10 border border-gray-500 rounded-[500px] p-2";
-	  useEffect(() => {
-		  setIsMobile(window.innerWidth < 768);
-	  }, []);
+export default function Pricing() {
+	const [isMobile, setIsMobile] = useState(false);
+	const ArrowStyles = "h-10 w-10 border border-gray-500 rounded-[500px] p-2";
+	useEffect(() => {
+		setIsMobile(window.innerWidth < 768);
+	}, []);
 	return (
 		<div className="h-full w-full flex flex-col justify-center items-center overflow-hidden">
 			<div className="container mx-auto w-full">
@@ -72,7 +71,7 @@ export default function Pricing () {
 			</div>
 		</div>
 	);
-};
+}
 
 function Cards({
 	title,
