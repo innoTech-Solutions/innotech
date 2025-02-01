@@ -28,7 +28,11 @@ export default function Process() {
 	);
 }
 
-function ProcessCard({ process }: { process: { title: string; description: string; contents: string[]; icon: React.ComponentType<React.SVGProps<SVGSVGElement>> } }) {
+function ProcessCard({
+	process,
+}: {
+	process: { title: string; description: string; contents: string[]; icon: React.ComponentType<React.SVGProps<SVGSVGElement>> };
+}) {
 	return (
 		<HoverCard>
 			<HoverCardTrigger className="flex flex-row gap-4 relative text-2xl">
@@ -48,7 +52,7 @@ function ProcessCard({ process }: { process: { title: string; description: strin
 					<div className="">
 						<h4 className="text-base font-semibold p-2 text-left">{process.description}</h4>
 						<hr />
-						<p className="text-sm text-left">
+						<div className="text-sm text-left">
 							{process.contents.map((content, index) => {
 								return (
 									<p key={index} className="p-1">
@@ -56,7 +60,7 @@ function ProcessCard({ process }: { process: { title: string; description: strin
 									</p>
 								);
 							})}
-						</p>
+						</div>
 					</div>
 				</div>
 			</HoverCardContent>
